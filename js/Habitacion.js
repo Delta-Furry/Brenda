@@ -190,6 +190,8 @@ function crearCuarto(grupo) {
     }
     const luzTecho = new THREE.PointLight(0xffffff, 0.8, 15);
     luzTecho.position.set(0, 5, 0); grupo.add(luzTecho);
+piso.position.y = -0.01;
+    
 }
 
 function crearCama() {
@@ -599,4 +601,5 @@ function crearBotonRegresar(grupo, loader, interactables) {
     contenedor.add(fAnt); interactables.push(fAnt);
 
 }
+
 
