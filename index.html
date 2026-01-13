@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum 3D - Debug</title>
+    <style>
+        /* 1. Esto fuerza que el fondo de la página sea NEGRO desde el principio */
+        body {
+            margin: 0;
+            background-color: #000000; /* Fondo negro forzoso */
+            overflow: hidden; /* Sin barras de scroll */
+        }
+        
+        canvas {
+            display: block; /* Elimina márgenes extraños del canvas */
+        }
+    </style>
+</head>
+<body>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./js/three.module.js",
+                "tween": "https://unpkg.com/@tweenjs/tween.js@23.1.2/dist/tween.esm.js"
+            }
+        }
+    </script>
+
+    <script type="module" src="./js/main.js"></script>
+
+</body>
+</html>
