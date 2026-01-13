@@ -164,6 +164,46 @@ alturas.forEach(h => {
 
 scene.add(tianguisGroup);
 
+
+
+
+// ==========================================
+// --- 3 PAREDES LATERALES (CÓDIGO CORREGIDO) ---
+// ==========================================
+
+// 1. Cargar las 3 texturas (Nombres nuevos para no repetir)
+const texCieloAtras = textureLoader.load('./assets/textures/cielo.jpg');
+const texCieloIzq = textureLoader.load('./assets/textures/cielo2.jpg');
+const texCieloDer = textureLoader.load('./assets/textures/cielo3.jpg');
+
+// 2. Crear materiales
+const matCieloAtras = new THREE.MeshBasicMaterial({ map: texCieloAtras, side: THREE.DoubleSide });
+const matCieloIzq = new THREE.MeshBasicMaterial({ map: texCieloIzq, side: THREE.DoubleSide });
+const matCieloDer = new THREE.MeshBasicMaterial({ map: texCieloDer, side: THREE.DoubleSide });
+
+// 3. Geometría
+const geoCielo = new THREE.PlaneGeometry(25, 15); 
+
+// --- PARED IZQUIERDA ---
+const muroIzq = new THREE.Mesh(geoCielo, matCieloIzq);
+muroIzq.position.set(-12.5, 6, 0); 
+muroIzq.rotation.y = Math.PI / 2;
+scene.add(muroIzq);
+
+// --- PARED DERECHA ---
+const muroDer = new THREE.Mesh(geoCielo, matCieloDer);
+muroDer.position.set(12.5, 6, 0); 
+muroDer.rotation.y = -Math.PI / 2;
+scene.add(muroDer);
+
+// --- PARED DE ATRÁS ---
+const muroAtras = new THREE.Mesh(geoCielo, matCieloAtras);
+muroAtras.position.set(0, 6, -12.5);
+scene.add(muroAtras);
+
+
+
+
 // --- 5. LOGICA INTERACTIVA ---
 const interactables = [];
 const loader = new GLTFLoader();
