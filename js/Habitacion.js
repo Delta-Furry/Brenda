@@ -199,7 +199,7 @@ function crearCuarto(grupo) {
 
     // --- CORRECCIÓN IMPORTANTE ---
     piso.rotation.x = -Math.PI / 2; // Acostado
-    piso.position.y = 0.1;         // POSITIVO (+0.05) para que quede ENCIMA del suelo de la caja
+    piso.position.y = 0.04;         // POSITIVO (+0.05) para que quede ENCIMA del suelo de la caja
     
     grupo.add(piso);
 
@@ -616,6 +616,7 @@ function crearBotonRegresar(grupo, loader, interactables) {
     contenedor.add(fAnt); interactables.push(fAnt);
 
 }
+
 
 
 
