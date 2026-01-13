@@ -183,7 +183,7 @@ function crearCuarto(grupo) {
         textPiso.wrapS = THREE.RepeatWrapping; textPiso.wrapT = THREE.RepeatWrapping; textPiso.repeat.set(4, 4);
         const piso = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), new THREE.MeshStandardMaterial({ map: textPiso }));
         piso.rotation.x = -Math.PI / 2; grupo.add(piso);
-        piso.position.y = 0.01; // Lo subimos 1 centímetro para que no choque con la base
+        piso.position.y = 0.001; // Lo subimos 1 centímetro para que no choque con la base
     } else {
         const piso = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), new THREE.MeshStandardMaterial({ color: 0x222222 }));
         piso.rotation.x = -Math.PI / 2; grupo.add(piso);
@@ -599,3 +599,4 @@ function crearBotonRegresar(grupo, loader, interactables) {
     contenedor.add(fAnt); interactables.push(fAnt);
 
 }
+
