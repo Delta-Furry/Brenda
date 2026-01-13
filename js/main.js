@@ -228,10 +228,16 @@ function cargarGorraMenu(x, nombre) {
         function anim() { requestAnimationFrame(anim); m.rotation.y += 0.005; } anim();
     });
 }
-cargarGorraMenu(-3, "gorra_quien_soy");
-cargarGorraMenu(0, "gorra_proyectos");
-cargarGorraMenu(3, "gorra_contacto");
+// --- CORRECCIÓN: Los nombres ahora coinciden con las gorras ---
 
+// Posición -3 (Izquierda) = Gorra "Quién Soy" -> Debe decir "SOBRE MI"
+letrero("SOBRE MI", -3); 
+
+// Posición 0 (Centro) = Gorra "Proyectos" -> Debe decir "PROYECTOS"
+letrero("PROYECTOS", 0); 
+
+// Posición 3 (Derecha) = Gorra "Contacto" -> Debe decir "CONTACTO"
+letrero("CONTACTO", 3);
 // Letreros
 const fontLoader = new FontLoader();
 function letrero(txt, x) {
@@ -355,4 +361,5 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
 
