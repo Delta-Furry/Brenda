@@ -187,6 +187,7 @@ function crearCuarto(grupo) {
     } else {
         const piso = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), new THREE.MeshStandardMaterial({ color: 0x222222 }));
         piso.rotation.x = -Math.PI / 2; grupo.add(piso);
+        piso.position.y = -0.2;
     }
     const luzTecho = new THREE.PointLight(0xffffff, 0.8, 15);
     luzTecho.position.set(0, 5, 0); grupo.add(luzTecho);
@@ -601,5 +602,6 @@ function crearBotonRegresar(grupo, loader, interactables) {
     contenedor.add(fAnt); interactables.push(fAnt);
 
 }
+
 
 
