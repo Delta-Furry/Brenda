@@ -242,7 +242,7 @@ function letrero(txt, x) {
         let t=0; function anim() { requestAnimationFrame(anim); t+=0.02; mesh.position.y = 1.2 + Math.sin(t)*0.05; } anim();
     });
 }
-letrero("SOBRE MI", -3); letrero("PROYECTOS", 0); letrero("CONTACTO", 3);
+letrero("PROYECTOS", -3); letrero("SOBRE MI", 0); letrero("CONTACTO", 3);
 
 // Cargar Escenarios
 cargarHabitacion(scene, loader, interactables);
@@ -355,3 +355,4 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
