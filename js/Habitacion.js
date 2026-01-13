@@ -174,25 +174,39 @@ function crearTextoPared(grupo, mensaje, x, y, z, rotY, colorHex, tamano) {
         grupo.add(mesh);
     });
 }
-
 function crearCuarto(grupo) {
+    // 1. La caja de la habitación
     const habitacion = new THREE.Mesh(new THREE.BoxGeometry(12, 6, 12), matPared);
-    habitacion.position.y = 3; habitacion.receiveShadow = true; grupo.add(habitacion);
-    const textPiso = new THREE.TextureLoader().load('./assets/piso.jpg');
-    if(textPiso) {
-        textPiso.wrapS = THREE.RepeatWrapping; textPiso.wrapT = THREE.RepeatWrapping; textPiso.repeat.set(4, 4);
-        const piso = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), new THREE.MeshStandardMaterial({ map: textPiso }));
-        piso.rotation.x = -Math.PI / 2; grupo.add(piso);
-        piso.position.y = 0.001; // Lo subimos 1 centímetro para que no choque con la base
-    } else {
-        const piso = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), new THREE.MeshStandardMaterial({ color: 0x222222 }));
-        piso.rotation.x = -Math.PI / 2; grupo.add(piso);
-        piso.position.y = -0.2;
-    }
-    const luzTecho = new THREE.PointLight(0xffffff, 0.8, 15);
-    luzTecho.position.set(0, 5, 0); grupo.add(luzTecho);
-piso.position.y = -0.01;
+    habitacion.position.y = 3; 
+    habitacion.receiveShadow = true; 
+    grupo.add(habitacion);
+
+    // 2. El Piso
+    // Nota: Verifiqué tu carpeta assets y la ruta correcta suele ser './assets/textures/t_piso.jpg'
+    // Si tu imagen se llama diferente, solo cambia el nombre aquí.
+    const textPiso = new THREE.TextureLoader().load('./assets/textures/t_piso.jpg');
     
+    let piso; // Declaramos la variable afuera para poder usarla después
+
+    if(textPiso) {
+        textPiso.wrapS = THREE.RepeatWrapping; 
+        textPiso.wrapT = THREE.RepeatWrapping; 
+        textPiso.repeat.set(4, 4);
+        piso = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), new THREE.MeshStandardMaterial({ map: textPiso }));
+    } else {
+        piso = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), new THREE.MeshStandardMaterial({ color: 0x222222 }));
+    }
+
+    // --- CORRECCIÓN IMPORTANTE ---
+    piso.rotation.x = -Math.PI / 2; // Acostado
+    piso.position.y = 0.05;         // POSITIVO (+0.05) para que quede ENCIMA del suelo de la caja
+    
+    grupo.add(piso);
+
+    // 3. Luz del techo
+    const luzTecho = new THREE.PointLight(0xffffff, 0.8, 15);
+    luzTecho.position.set(0, 5, 0); 
+    grupo.add(luzTecho);
 }
 
 function crearCama() {
@@ -602,6 +616,7 @@ function crearBotonRegresar(grupo, loader, interactables) {
     contenedor.add(fAnt); interactables.push(fAnt);
 
 }
+
 
 
 
